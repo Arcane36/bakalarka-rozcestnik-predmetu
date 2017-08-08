@@ -1,0 +1,144 @@
+/* CSS Document */
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.container {
+    max-width: 700px;
+}
+
+.panel {
+    max-width: 950px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    /*background: rgba(126, 26, 71, 1);*/
+    /*color: white;*/
+}
+
+#logo_tul {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: 75%;
+    /*width="1772.25"; */
+    /*height="231"*/
+}
+
+#seznam_domen_tlac {
+    cursor: pointer; /*Safari fix. Nešlo rolovat roletky*/
+}
+
+#nadpisy {
+    text-align: center;
+}
+
+#frm-searchBar {
+    max-width: 950px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.btn-default {
+    background: rgba(126, 26, 71, 1);
+    color: white;
+}
+
+/*bootstrap toggle*/
+.toggle-handle {
+    background: white;
+}
+
+.whole_collapse_container {
+
+}
+
+.menu_img {
+    display: block;
+    padding-left: 25px;
+    background-image: url("../img/course.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    cursor: pointer; /*Safari fix. Nešlo rolovat roletky*/
+}
+
+#collapseContainer {
+    padding-left: 20px;
+    margin-bottom: -50px;
+}
+
+.menu_img:hover {
+    cursor: pointer;
+}
+
+.link_wrap {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+#checkbox_label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #7e1a47;
+}
+
+/*override posunutí 2 px doprava*/
+.nav-pills > li + li {
+    margin-left: 0px;
+}
+
+#table_vysledky {
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 950px;
+    margin-bottom: 20px;
+}
+
+#button_back {
+    margin-bottom: 20px;
+}
+
+#footer_col {
+    background-color: #7e1a47;
+}
+
+#footer_text {
+    text-align: center;
+    color: #ffffff;
+}
+
+.clr {
+    clear:both;
+}
+
+
+/* STICKY FOOTER */
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* STICKY FOOTER */

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{ifset title}{include title|striptags} | {/ifset}Rozcestník předmětů TUL</title>
+
+	<link rel="shortcut icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" >
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/style.css" />
+</head>
+
+<body>
+	{*<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>*}
+
+	{include content}
+
+
+	<div class="clr"></div>
+
+	<footer id="footer_col" class="footer">
+		<div class="container">
+			<p id="footer_text" class="text-muted">Tato stránka vznikla jako diplomový projekt. <br />Autor: Jan Kozánek
+			</p>
+		</div>
+	</footer>
+
+	{block scripts}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="{$basePath}/js/bootstrap.min.js"></script>
+		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+	{/block}
+</body>
+</html>

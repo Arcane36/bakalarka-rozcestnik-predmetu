@@ -1,0 +1,7 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=predmety.tul.cz;dbname=predmety'
+	user: kozanek
+	password: *******

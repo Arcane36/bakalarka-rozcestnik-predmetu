@@ -1,0 +1,111 @@
+
+{block content}
+
+<div class="container">
+
+    <div id="logo_tul">
+        <a href="http:\\www.tul.cz">
+            <img id="logo" class="img-responsive" src="{$basePath}/img/logo.png">
+        </a>
+    </div>
+
+    <div id="nadpisy">
+        <h1>Rozcestník předmětů TUL</h1>
+    </div>
+
+
+    <div class="clr"></div>
+
+    <div id="result_panel_container">
+
+        <button id="button_back" type="button" class="btn btn-default" aria-label="Left Align" onclick="window.history.back()">
+            <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Zpět
+        </button>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Výsledky nalezené v jednotlivých modulech:</div>
+
+            <div class="panel-body">
+
+                {*Záložky jednotlivých modulů*}
+                <ul class="nav nav-pills">
+                    <li n:foreach="$final as $f" {if $iterator->first} class="active"{/if}>
+                        <a data-toggle="tab" href="#menu{$iterator->getCounter()}"><span class="badge">{sizeof($f->courses)}</span> {$f->sitename} ({$f->domain})</a>
+                    </li>
+                </ul>
+                <hr>
+
+                {*Jednotlivé moduly*}
+                <div class="tab-content">
+                    {foreach $final as $f}
+                        {*První iterace nastaví classu na aktivní, aby vždy bylo něco označené*}
+                        <div id="menu{$iterator->getCounter()}" {if $iterator->first} class="tab-pane fade in active"{/if}class="tab-pane fade">
+                            {foreach $f->courses as $f2}
+                                <div class="panel panel-default">
+                                    {*Nadpisy předmětů - data-target má unikátní id na rolování menu*}
+                                    <div class="panel-heading">
+                                        <a class="menu_img" data-toggle="collapse" data-target="#collapsable{$f2->courseid}_{$iterator->getCounter()}">
+                                            [{$f2->courseshortname}] - <b>{$f2->coursefullname}</b>
+                                        </a>
+                                    </div>
+                                    {*Tělo předmětů*}
+                                    <div id="collapseContainer">
+                                        <div class="panel-body">
+                                            <div id="collapsable{$f2->courseid}_{$iterator->getCounter()}" class="collapse">
+                                                <br/>
+                                                <b>Odkaz na předmět:</b>
+                                                <p class="link_wrap"><a href="{$f2->courseurl}">{$f2->courseurl}</a></p>
+                                                <b>Popis předmětu:</b>
+                                                <p class="well well-sm">
+                                                    {if (!empty($f2->coursedescription)) }
+                                                        {strip_tags($f2->coursedescription)}
+                                                    {else}
+                                                        Předmět nemá vyplněný popis
+                                                    {/if}
+                                                </p>
+                                                {if ($f2->coursefreeaccess == 1)}
+                                                    <div class="alert alert-success" role="alert">
+                                                        <p>Předmět je <b>přístupný</b> i pro neregistrované uživatele.</p>
+                                                    </div>
+                                                {else}
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <p>Předmět je <b>nepřístupný</b> pro neregistrované uživatele.</p>
+                                                    </div>
+                                                {/if}
+                                                <p><b>Učitelé:</b></p>
+                                                <p>
+                                                    {if (!empty($f2->teachers))}
+                                                        {foreach $f2->teachers as $teachers}
+                                                            {if $iterator->last}
+                                                                {$teachers->firstname} {$teachers->lastname}
+                                                            {else}
+                                                                {$teachers->firstname} {$teachers->lastname},
+                                                            {/if}
+                                                        {/foreach}
+                                                    {else}
+                                                        Předmět nemá vyplněné učitele
+                                                    {/if}
+                                                </p>
+                                                {if (!empty($f2->coursecategories))}
+                                                    <p><b>Kategorie:</b></p>
+                                                    {foreach $f2->coursecategories as $cat}
+                                                        <span class="label label-default">{$cat}</span>
+                                                    {/foreach}
+                                                {/if}
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                </div>
+                            {/foreach}
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

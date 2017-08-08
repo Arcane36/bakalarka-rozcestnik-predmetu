@@ -1,0 +1,77 @@
+
+{block content}
+
+<div class="container">
+
+    <div id="logo_tul">
+        <a href="http:\\www.tul.cz">
+            <img id="logo" class="img-responsive" src="{$basePath}/img/logo.png">
+        </a>
+    </div>
+    <div class="clr"></div>
+
+    <div id="nadpisy">
+        <h1>Rozcestník předmětů TUL</h1>
+    </div>
+
+
+    <div class="clr"></div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                Aplikace slouží jako nadstavba nad e-learningovými systémy v rámci TUL. V případě, že si nejste jisti, na kterém
+            z mnoha systémů jsou umístěny výukové materiály pro libovolný kurz či předmět, máte možnost pomocí vyhledávacího
+            formuláře tuto informaci získat.
+                Vyhledávání probíhá na základě zadání zkratky (dle STAG) nebo názvu předmětu či kurzu do formuláře, a to
+                i jejich částí. Minimální velikost vyhledávaného textu jsou 3 znaky. Při vyhledávání si můžete zvolit,
+                jestli použijete zkratku nebo název.
+            </p>
+            <p>Vyhledávání probíhá napříč všemi registrovanými e-learningovými servery. Jejich seznam můžete zobrazit kliknutím
+                <b id="seznam_domen_tlac" data-toggle="collapse" data-target="#seznam">zde</b>.</p>
+            <div id="seznam" class="collapse">
+                <div class="well well-sm">
+                {foreach $domains as $d}
+                    {if ($iterator->last)}
+                        {$d['domena']}
+                    {else}
+                        {$d['domena']}<br>
+                    {/if}
+                {/foreach}
+                </div>
+            </div>
+            <p>V případě, že se kurzy či předměty podaří vyhledat, zobrazí se jejich seznam kategorizovaný dle serverů, na kterých byly nalezeny.
+                Při rozkliknutí kurzu získáte informace ohledně jména a zkratky kurzu, popisu (je-li k dispozici), seznam vyučujících,
+                kategorie a je-li pro přístup ke kurzu nutné přihlášení nebo ne.
+            </p>
+        </div>
+    </div>
+
+    {form searchBar}
+        {label checkbox: /}
+        <br />
+        {input checkbox:}
+        <br/>
+        <br/>
+        {label searchInput /}
+        <div class="input-group">
+            {input searchInput class => "form-control"}
+            <span class="input-group-btn">
+                {input searchButton class => "btn btn-default" }
+            </span>
+        </div>
+        {*Vykreslení chyb formu*}
+        {if $form->hasErrors()}
+            {foreach $form->errors as $error}
+                <div class="alert alert-danger" role="alert">
+                    {$error}
+                </div>
+            {/foreach}
+        {/if}
+    {/form}
+    <br/>
+    <br/>
+
+
+
+</div>
