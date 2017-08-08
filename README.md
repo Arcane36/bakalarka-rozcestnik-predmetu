@@ -1,0 +1,1 @@
+# bakalarka-rozcestnik-predmetu
